@@ -1,9 +1,10 @@
-import './App.css';
+import TaskItem from "./components/TaskItem/TaskItem";
 
 function App() {
   return (
-    <div className="App">
-      hello
+    
+    <div>
+      <TaskItem/>
     </div>
   );
 }
