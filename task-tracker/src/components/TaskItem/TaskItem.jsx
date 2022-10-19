@@ -2,11 +2,13 @@ import { Checkbox, ListItem, ListItemText, IconButton, Tooltip } from '@mui/mate
 import { MdCheckCircle, MdOutlineCircle, MdDelete } from "react-icons/md";
 import './TaskItem.scss';
 
-const TaskItem = () => {
+const TaskItem = ({ task}) => {
+
+  const {title, isCompleted, date, id } = task;
   return (
 
     <>
-      <ListItem disablePadding className="TaskItem">
+      <ListItem disablePadding className={`TaskItem ${isCompleted&&'completed'}` }>
         <Checkbox
           icon={ <MdOutlineCircle className='checkIcon' /> }
           checkedIcon={ <MdCheckCircle className="checkIcon" /> }
