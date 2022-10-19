@@ -5,8 +5,8 @@ function App() {
   return (
     
     <div>
-      <Container maxWidth='md'>
-        <TaskItem/>
+      <Container maxWidth="md">
+        <TaskItem />
 
       </Container>
     </div>
