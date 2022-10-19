@@ -1,13 +1,15 @@
 import { Container } from "@mui/material";
+import Navigation from "./components/Navigation";
 import TaskItem from "./components/TaskItem/TaskItem";
 
 function App() {
   return (
     
     <div>
-      <Container maxWidth="md">
-        <TaskItem />
 
+      <Navigation/>
+      <Container maxWidth="sm">
+        <TaskItem />
       </Container>
     </div>
   );
