@@ -7,6 +7,7 @@ import data from "./data.json";
 
 function App() {
 	const [tasks, setTasks] = useState(data);
+  const [show, setShow] = useState(false);
 	//Toggle Task complete
 	const toggleComplete = (id) => {
 		//find index of the task in the tasks array
@@ -18,11 +19,16 @@ function App() {
 		setTasks(updatedTasks);
 	};
 
+  //delete task
+  const deleteTask =(id) => {
+    let updatedTasks = tasks.filter(task => task.id !==id)
+    setTasks(updatedTasks)
+  }
 	return (
 		<div>
 			<Navigation />
 			<Container maxWidth="sm">
-				<TaskList tasks={tasks} />
+				<TaskList tasks={tasks} toggleComplete={toggleComplete} deleteTask={deleteTask} />
 			</Container>
 		</div>
 	);
