@@ -4,20 +4,21 @@ import './TaskItem.scss';
 
 const TaskItem = ({ task, onComplete, onDelete}) => {
 
-  const {title, isCompleted, date, id } = task;
+  let { title, isCompleted, date, id } = task;
+  date = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
   return (
 
     <>
       <ListItem disablePadding className={`TaskItem ${isCompleted&&'completed'}` }>
-        <Checkbox
-            onChange={() => onComplete(id)}
+        <Checkbox 
+          onChange={()=> onComplete(id)}
           icon={ <MdOutlineCircle className='checkIcon' /> }
           checkedIcon={ <MdCheckCircle className="checkIcon" /> }
         />
-        <ListItemText primary={title} secondary={date} />
+        <ListItemText primary={ title } secondary={ date} />
         
         <Tooltip title="Remove" arrow>
-          <IconButton onClick={() => onDelete(id)}>
+          <IconButton onClick={()=> onDelete(id) }>
             <MdDelete className='deleteIcon'/>
           </IconButton>
         </Tooltip>
